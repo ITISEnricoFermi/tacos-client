@@ -1,6 +1,6 @@
 {
   "name": "Mycroft",
-  "short_name": "mycroft-client",
+  "short_name": "Mycroft",
   "icons": [{
       "src": "./img/icons/android-chrome-192x192.png",
       "sizes": "192x192",
