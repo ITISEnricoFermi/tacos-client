@@ -28,15 +28,15 @@
       </md-toolbar>
 
       <md-list>
-        <md-list-item>
+        <router-link to="/" tag="md-list-item">
           <md-icon>cast</md-icon>
           <span class="md-list-item-text">Station</span>
-        </md-list-item>
+        </router-link>
 
-        <md-list-item>
+        <router-link to="/devices" tag="md-list-item">
           <md-icon>devices_other</md-icon>
           <span class="md-list-item-text">Devices</span>
-        </md-list-item>
+        </router-link>
 
         <!-- <md-list-item>
           <md-icon>delete</md-icon>
@@ -51,7 +51,7 @@
     </md-app-drawer>
 
     <md-app-content>
-      <p v-for="i in 100">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quibusdam, non molestias et! Earum magnam, similique, quo recusandae placeat dicta asperiores modi sint ea repudiandae maxime? Quae non explicabo, neque.</p>
+      <p v-for="i in 30">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quibusdam, non molestias et! Earum magnam, similique, quo recusandae placeat dicta asperiores modi sint ea repudiandae maxime? Quae non explicabo, neque.</p>
     </md-app-content>
   </md-app>
 </div>
