@@ -1,10 +1,10 @@
 <template>
-<div class="page-container">
-  <md-app md-waterfall md-mode="fixed-last">
-    <md-app-toolbar class="md-large md-dense md-primary">
+<div class="page-container md-layout-row">
+  <md-app>
+    <md-app-toolbar class="md-dense md-primary">
       <div class="md-toolbar-row">
         <div class="md-toolbar-section-start">
-          <span class="md-title">Station</span>
+          <span class="md-title">{{ title }}</span>
         </div>
         <div class="md-toolbar-section-end">
           <md-button class="md-icon-button">
@@ -12,14 +12,14 @@
           </md-button>
         </div>
       </div>
-      <div class="md-toolbar-row">
+      <!-- <div class="md-toolbar-row">
         <md-tabs class="md-primary">
           <md-tab id="tab-home" md-label="Home"></md-tab>
           <md-tab id="tab-pages" md-label="Pages"></md-tab>
           <md-tab id="tab-posts" md-label="Posts"></md-tab>
           <md-tab id="tab-favorites" md-label="Favorites"></md-tab>
         </md-tabs>
-      </div>
+      </div> -->
     </md-app-toolbar>
 
     <md-app-drawer md-permanent="full">
@@ -49,9 +49,12 @@
         </md-list-item> -->
       </md-list>
     </md-app-drawer>
-
     <md-app-content>
-      <p v-for="i in 30">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quibusdam, non molestias et! Earum magnam, similique, quo recusandae placeat dicta asperiores modi sint ea repudiandae maxime? Quae non explicabo, neque.</p>
+      <keep-alive>
+        <!-- <transition name="fade" mode="out-in"> -->
+          <router-view></router-view>
+        <!-- </transition> -->
+      </keep-alive>
     </md-app-content>
   </md-app>
 </div>
@@ -59,14 +62,37 @@
 
 <script>
 export default {
-  name: 'Waterfall'
+  data () {
+    return {
+      title: undefined
+    }
+  },
+  beforeRouteUpdate (to, from, next) {
+    this.title = to.meta.title
+    next()
+  }
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped lang="scss">
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .1s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+
 .md-app {
-    max-height: 100vh;
+    min-height: 100vh;
     border: 1px solid rgba(#000, .12);
+
+    .md-card {
+        width: 320px;
+        margin: 4px;
+        display: inline-block;
+        vertical-align: top;
+    }
 }
 
 .md-drawer {
