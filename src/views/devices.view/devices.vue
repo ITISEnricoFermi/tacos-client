@@ -1,45 +1,63 @@
 <template>
-<main>
-  <!-- <p v-for="i in 30">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quibusdam, non molestias et! Earum magnam, similique, quo recusandae placeat dicta asperiores modi sint ea repudiandae maxime? Quae non explicabo, neque.</p> -->
-  <md-card class="md-primary">
-    <md-card-header>
-      <md-card-header-text>
-        <div class="md-title">Lampadina</div>
-        <div class="md-subhead">Salone</div>
-      </md-card-header-text>
-
-      <md-card-media>
-        <img src="/images/lamp.png" alt="Avatar">
-      </md-card-media>
-    </md-card-header>
-
-    <md-card-actions>
-      <md-button @click="toggle">{{ lamp ? 'Turn Off' : 'Turn On' }}</md-button>
-    </md-card-actions>
-  </md-card>
+<main class="main">
+  <app-device v-for="(device, index) in devices" :key="index" :device="device"></app-device>
 </main>
 </template>
 
 <script>
+
+import {
+  v1
+} from '@/main'
+
+import Device from '@/components/device/device'
+
 export default {
   data () {
     return {
-      lamp: false
+      devices: []
     }
   },
+  async created () {
+    this.devices = await this.getDevices()
+  },
   methods: {
-    toggle () {
-      this.lamp = !this.lamp
+    async getDevices () {
+      const response = await v1.get('/devices')
+      return response.data.result
+    },
+    async toggle () {
+      const response = await v1.get('/devices/state/')
     }
+  },
+  components: {
+    appDevice: Device
   }
 }
 </script>
 
 <style scoped lang="scss">
+
+.main {
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+
+  @include respond(tab-lan) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include respond(tab-por) {
+    grid-template-columns: 1fr;
+  }
+
+}
+
 .md-card {
-    width: 320px;
-    margin: 4px;
+    // width: 320px;
     display: inline-block;
     vertical-align: top;
+    margin: 0!important;
 }
 </style>

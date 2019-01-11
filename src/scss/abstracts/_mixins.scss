@@ -1,0 +1,87 @@
+@mixin clearfix {
+
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+}
+
+@mixin absCenter {
+  top: 50%!important;
+  left: 50%!important;
+  transform: translate(-50%, -50%)!important;
+}
+
+@mixin alertColor($color) {
+  background-color: lighten($color, 27%)!important;
+  // border: 0.5px solid lighten($color, 10%)!important;
+  color: darken($color, 27%)!important;
+}
+
+@mixin ellipsis($font, $line-height, $lines) {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  height: $font*$line-height*$lines;
+  font-size: $font;
+  line-height: $line-height;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+}
+
+@mixin color-scheme($scheme) {
+  @if $scheme == dark {
+    @media (prefers-color-scheme: dark) {
+      @content;
+    }
+  }
+
+  @if $scheme == light {
+    @media (prefers-color-scheme: light) {
+      @content;
+    }
+  }
+}
+
+// MEDIA QUERY MANAGER
+/*
+ *  $breakpoint: {
+ *    phone: [0px - 600px],
+ *    tab-port: [600px - 900px],
+ *    tab-land: [900px - 1200px],
+ *    big-desktop: [1200px - #]
+ *  }
+ *
+ *   1em = 16px
+ *
+ */
+
+@mixin respond($breakpoint) {
+
+  @if $breakpoint == phone {
+    @media(max-width: 37.5em) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == tab-por {
+    @media(max-width: 56.25em) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == tab-lan {
+    @media(max-width: 75em) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == big-desktop {
+    @media(min-width: 112.5em) {
+      @content;
+    }
+  }
+
+}
