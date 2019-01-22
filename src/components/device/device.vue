@@ -2,12 +2,15 @@
   <md-card class="md-primary">
     <md-card-header>
       <md-card-header-text>
-        <div class="md-title">Lampadina</div>
+        <div class="md-title">{{ device.type.name }}</div>
         <div class="md-subhead">{{ device.devid }}</div>
       </md-card-header-text>
 
       <md-card-media>
-        <img src="/images/lamp.png" alt="Avatar">
+        <div class="icon">
+          <i :class="icons[device.type.code]"></i>
+        </div>
+        <!-- <img src="/images/lamp.png" alt="Avatar"> -->
       </md-card-media>
     </md-card-header>
 
@@ -28,7 +31,8 @@ export default {
   props: ['device'],
   data () {
     return {
-      state: false
+      state: false,
+      icons: ['fas fa-question', 'far fa-lightbulb']
     }
   },
   created () {
@@ -47,4 +51,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.icon {
+  height: 5rem;
+  width: 5rem;
+  background: linear-gradient(#e66465, #9198e5);
+
+  i {
+    display: block;
+    text-align: right;
+    font-size: 3.5rem;
+    position: absolute;
+    @include absCenter;
+  }
+}
 </style>
