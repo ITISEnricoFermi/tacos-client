@@ -22,6 +22,7 @@
 import {
   v1
 } from '@/main'
+import { log } from 'util';
 
 export default {
   props: ['device'],
@@ -38,7 +39,9 @@ export default {
     async toggle () {
       const { devid } = this.device
       this.state = !this.state
-      const reponse = await v1.put(`/devices/${devid}/state/${Number(this.state)}`)
+      console.log(`/devices/${devid}/state/${String(this.state)}`);
+      
+      const reponse = await v1.put(`/devices/${devid}/state/${String(this.state)}`)
     }
   }
 }

@@ -24,10 +24,11 @@ export default {
   methods: {
     async getDevices () {
       const response = await v1.get('/devices')
-      return response.data.result
+      return response.data
     },
     async toggle () {
       const response = await v1.get('/devices/state/')
+      return response.data
     }
   },
   components: {
@@ -43,6 +44,7 @@ export default {
   grid-template-rows: auto;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 20px;
+  width: 100%;
 
   @include respond(tab-lan) {
     grid-template-columns: 1fr 1fr;
@@ -50,6 +52,10 @@ export default {
 
   @include respond(tab-por) {
     grid-template-columns: 1fr;
+  }
+
+  @include respond(phone) {
+
   }
 
 }
