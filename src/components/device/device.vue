@@ -12,7 +12,7 @@
     </md-card-header>
 
     <md-card-actions>
-      <md-button @click="toggle">{{ state ? 'Turn Off' : 'Turn On' }}</md-button>
+      <md-button @click="toggle">{{ state ? 'Turn On' : 'Turn Off' }}</md-button>
     </md-card-actions>
   </md-card>
 </template>
