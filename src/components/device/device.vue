@@ -3,7 +3,7 @@
     <md-card-header>
       <md-card-header-text>
         <div class="md-title">Lampadina</div>
-        <div class="md-subhead">Salone</div>
+        <div class="md-subhead">{{ device.devid }}</div>
       </md-card-header-text>
 
       <md-card-media>
