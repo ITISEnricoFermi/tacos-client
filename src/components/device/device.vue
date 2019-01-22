@@ -22,6 +22,7 @@
 import {
   v1
 } from '@/main'
+import { log } from 'util'
 
 export default {
   props: ['device'],
