@@ -38,7 +38,8 @@ export default {
     async toggle () {
       const { devid } = this.device
       this.state = !this.state
-      const reponse = await v1.put(`/devices/${devid}/state/${Number(this.state)}`)
+      const response = await v1.put(`/devices/${devid}/state/${this.state}`)
+      return response.data
     }
   }
 }

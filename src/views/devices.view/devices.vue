@@ -24,10 +24,11 @@ export default {
   methods: {
     async getDevices () {
       const response = await v1.get('/devices')
-      return response.data.result
+      return response.data
     },
     async toggle () {
       const response = await v1.get('/devices/state/')
+      return response.data
     }
   },
   components: {

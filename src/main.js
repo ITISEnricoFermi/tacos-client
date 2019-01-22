@@ -1,5 +1,4 @@
 import Vue from 'vue'
-import axios from 'axios'
 import App from './App.vue'
 import VueMaterial from 'vue-material'
 
@@ -12,13 +11,11 @@ import './registerServiceWorker'
 import 'vue-material/dist/vue-material.min.css'
 import 'vue-material/dist/theme/default.css'
 
+export * from './utils/v1'
+
 Vue.config.productionTip = false
 
 Vue.use(VueMaterial)
-
-export const v1 = axios.create({
-  baseURL: 'http://localhost:3000/api/v1/'
-})
 
 new Vue({
   router,
