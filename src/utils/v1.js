@@ -4,5 +4,5 @@ import getUrl from './getUrl'
 const env = process.env.NODE_ENV
 
 export const v1 = axios.create({
-  baseURL: `${getUrl(env)}/api/v1`
+  baseURL: `http://192.168.43.35:3000/api/v1`
 })

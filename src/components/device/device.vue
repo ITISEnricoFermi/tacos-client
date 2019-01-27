@@ -3,7 +3,7 @@
     <md-card-header>
       <md-card-header-text>
         <div class="md-title">{{ device.type.name }}</div>
-        <div class="md-subhead">{{ device.devid }}</div>
+        <div class="md-subhead">{{ device.id }}</div>
       </md-card-header-text>
 
       <md-card-media>
@@ -36,14 +36,14 @@ export default {
     }
   },
   created () {
-    const { devid, state, type } = this.device
+    const { id, state, type } = this.device
     this.state = Boolean(state)
   },
   methods: {
     async toggle () {
-      const { devid } = this.device
+      const { id } = this.device
       this.state = !this.state
-      const response = await v1.put(`/devices/${devid}/state/${this.state}`)
+      const response = await v1.put(`/devices/${id}/state/${this.state}`)
       return response.data
     },
     color () {

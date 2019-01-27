@@ -1,8 +1,7 @@
 <template>
 <main class="main">
-  <app-device v-for="(device, index) in devices" :key="index" :device="device" @color="showDialog(device.devid, 'appColors')"></app-device>
-  <app-dialog :dialog="dialog" @close="dialog.visible = false"></app-dialog>
-</main>
+  <app-device v-for="(device, index) in devices" :key="index" :device="device" @color="showDialog(device.id, 'appColors')"></app-device>
+ </main>
 </template>
 
 <script>
