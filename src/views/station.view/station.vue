@@ -1,6 +1,6 @@
 <template>
   <main>
-    <p>Ciao</p>
+    <p>Station</p>
   </main>
 </template>
 

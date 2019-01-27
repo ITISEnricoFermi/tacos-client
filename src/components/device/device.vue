@@ -10,11 +10,11 @@
         <div class="icon">
           <i :class="icons[device.type.code]"></i>
         </div>
-        <!-- <img src="/images/lamp.png" alt="Avatar"> -->
       </md-card-media>
     </md-card-header>
 
     <md-card-actions>
+      <md-button @click="color">Color</md-button>
       <md-button @click="toggle">{{ state ? 'Turn On' : 'Turn Off' }}</md-button>
     </md-card-actions>
   </md-card>
@@ -45,6 +45,9 @@ export default {
       this.state = !this.state
       const response = await v1.put(`/devices/${devid}/state/${this.state}`)
       return response.data
+    },
+    color () {
+      this.$emit('color')
     }
   }
 }
