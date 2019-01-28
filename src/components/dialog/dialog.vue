@@ -2,12 +2,12 @@
   <md-dialog :md-active.sync="dialog.visible">
     <md-dialog-title>Colors</md-dialog-title>
     <md-content class="content">
-      <components :is="dialog.type"></components>
+      <components :is="dialog.type" :dialog="dialog"></components>
     </md-content>
 
     <md-dialog-actions>
       <md-button class="md-primary" @click="close">Close</md-button>
-      <md-button class="md-primary" @click="save">Save</md-button>
+      <!-- <md-button class="md-primary" @click="save">Save</md-button> -->
     </md-dialog-actions>
   </md-dialog>
 </template>
@@ -21,10 +21,10 @@ export default {
   methods: {
     close () {
       this.$emit('close')
-    },
-    save () {
-      console.log('Dialog:', 'Save')
     }
+    // save () {
+    //   console.log('Dialog:', 'Save')
+    // }
   },
   components: {
     appColors: Colors

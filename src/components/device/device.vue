@@ -15,7 +15,7 @@
 
     <md-card-actions>
       <md-button @click="color">Color</md-button>
-      <md-button @click="toggle">{{ state ? 'Turn On' : 'Turn Off' }}</md-button>
+      <md-button @click="toggle">{{ state ? 'Turn Off' : 'Turn On' }}</md-button>
     </md-card-actions>
   </md-card>
 </template>
@@ -32,7 +32,11 @@ export default {
   data () {
     return {
       state: false,
-      icons: ['fas fa-question', 'far fa-lightbulb']
+      icons: {
+        0: 'fas fa-question',
+        49: 'far fa-lightbulb',
+        81: 'fas fa-candy-cane'
+      }
     }
   },
   created () {

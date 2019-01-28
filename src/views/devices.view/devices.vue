@@ -1,7 +1,8 @@
 <template>
 <main class="main">
   <app-device v-for="(device, index) in devices" :key="index" :device="device" @color="showDialog(device.id, 'appColors')"></app-device>
- </main>
+  <app-dialog :dialog="dialog" @close="dialog.visible = false" v-if="dialog.visible === true"></app-dialog>
+</main>
 </template>
 
 <script>
@@ -38,9 +39,13 @@ export default {
       return response.data
     },
     showDialog (id, type) {
-      this.dialog.visible = true
-      this.dialog.type = type
-      this.dialog.data.id = id
+      this.dialog = {
+        visible: true,
+        type,
+        data: {
+          id
+        }
+      }
     }
   },
   components: {
