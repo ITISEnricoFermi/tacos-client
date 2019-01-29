@@ -14,7 +14,7 @@
     </md-card-header>
 
     <md-card-actions>
-      <md-button @click="color">Color</md-button>
+      <md-button @click="color" v-if="device.type.code === 2">Color</md-button>
       <md-button @click="toggle">{{ state ? 'Turn Off' : 'Turn On' }}</md-button>
     </md-card-actions>
   </md-card>
@@ -34,8 +34,8 @@ export default {
       state: false,
       icons: {
         0: 'fas fa-question',
-        49: 'far fa-lightbulb',
-        81: 'fas fa-candy-cane'
+        1: 'far fa-lightbulb',
+        2: 'fas fa-candy-cane'
       }
     }
   },

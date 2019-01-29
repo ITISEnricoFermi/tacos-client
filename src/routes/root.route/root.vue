@@ -8,7 +8,7 @@
         </div>
         <div class="md-toolbar-section-end">
           <md-button class="md-icon-button">
-            <md-icon>more_vert</md-icon>
+            <md-icon>mic</md-icon>
           </md-button>
         </div>
       </div>
