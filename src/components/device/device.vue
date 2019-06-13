@@ -25,7 +25,6 @@
 import {
   v1
 } from '@/main'
-import { log } from 'util'
 
 export default {
   props: ['device'],
@@ -40,7 +39,7 @@ export default {
     }
   },
   created () {
-    const { id, state, type } = this.device
+    const { state } = this.device
     this.state = Boolean(state)
   },
   methods: {

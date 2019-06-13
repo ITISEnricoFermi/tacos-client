@@ -26,8 +26,8 @@ export default {
       const color = this.color.split('#')
       const response = await v1.put(`/devices/${id}/colors/${color[1]}`)
       this.$emit('pick', this.color)
-      return response.data
       console.log('Color:', this.color)
+      return response.data
     }
   },
   components: {
